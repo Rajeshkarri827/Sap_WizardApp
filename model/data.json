@@ -1,0 +1,52 @@
+{
+  "countries": [
+    { "code": "IN", "name": "India" },
+    { "code": "US", "name": "United States" },
+    { "code": "CA", "name": "Canada" }
+  ],
+  "states": [
+    { "code": "MH", "countryCode": "IN", "name": "Maharashtra" },
+    { "code": "KA", "countryCode": "IN", "name": "Karnataka" },
+    { "code": "DL", "countryCode": "IN", "name": "Delhi" },
+    { "code": "CA-ON", "countryCode": "CA", "name": "Ontario" },
+    { "code": "US-CA", "countryCode": "US", "name": "California" }
+  ],
+  "cities": [
+    { "code": "MUM", "stateCode": "MH", "name": "Mumbai" },
+    { "code": "PUN", "stateCode": "MH", "name": "Pune" },
+    { "code": "BLR", "stateCode": "KA", "name": "Bengaluru" },
+    { "code": "DEL", "stateCode": "DL", "name": "New Delhi" },
+    { "code": "TOR", "stateCode": "CA-ON", "name": "Toronto" },
+    { "code": "SFO", "stateCode": "US-CA", "name": "San Francisco" }
+  ],
+  "roles": [
+    { "id": "r1", "title": "Software Engineer" },
+    { "id": "r2", "title": "Frontend Developer (UI5/React)" },
+    { "id": "r3", "title": "Data Scientist" },
+    { "id": "r4", "title": "DevOps Engineer" },
+    { "id": "r5", "title": "Backend Engineer" }
+  ],
+  "skills": [
+    { "skill": "JavaScript" },
+    { "skill": "Python" },
+    { "skill": "Java" },
+    { "skill": "SAPUI5" },
+    { "skill": "React" },
+    { "skill": "Node.js" },
+    { "skill": "SQL" },
+    { "skill": "Docker" }
+  ],
+  "colleges": [
+    { "id": "c1", "name": "Indian Institute of Technology Bombay", "city": "Mumbai" },
+    { "id": "c2", "name": "Vishveshwarya Technological University", "city": "Belgaum" },
+    { "id": "c3", "name": "Delhi Technological University", "city": "New Delhi" },
+    { "id": "c4", "name": "University of Toronto", "city": "Toronto" }
+  ],
+  "preferredLocations": [
+    { "code": "MUM", "name": "Mumbai" },
+    { "code": "PUN", "name": "Pune" },
+    { "code": "BLR", "name": "Bengaluru" },
+    { "code": "DEL", "name": "New Delhi" },
+    { "code": "SFO", "name": "San Francisco" }
+  ]
+}
