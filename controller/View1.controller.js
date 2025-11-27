@@ -31,7 +31,7 @@ sap.ui.define([
             this.byId("inpYear").attachLiveChange(this._validateYear.bind(this));
             this.byId("inpExp").attachLiveChange(this._validateExp.bind(this));
         },
-        
+
         _validateName: function(oEvent) {
             const value = oEvent.getParameter("value");
             const regex = /^[A-Za-z ]{3,50}$/;
@@ -74,7 +74,7 @@ sap.ui.define([
         },
 
         _validateStep: function () {
-            var step = this._wizard.getCurrentStep();
+            const step = this._wizard.getCurrentStep();
 
             if (step === this.byId("stepPersonal").getId()) {
                 if ([this.byId("inpName"), this.byId("inpEmail"), this.byId("inpPhone")].some(i => i.getValueState() === "Error") ||
@@ -124,16 +124,15 @@ sap.ui.define([
         },
 
         onCollegeSearch: function (oEvent) {
-            var sValue = oEvent.getParameter("value");
-            var oBinding = oEvent.getSource().getBinding("items");
+            const sValue = oEvent.getParameter("value");
+            const oBinding = oEvent.getSource().getBinding("items");
             oBinding.filter(sValue ? [new Filter("name", FilterOperator.Contains, sValue)] : []);
         },
 
         onCollegeSelect: function (oEvent) {
-            var oItem = oEvent.getParameter("selectedItem");
+            const oItem = oEvent.getParameter("selectedItem");
             if (oItem) {
-                var sName = oItem.getTitle();
-                this.byId("inpCollege").setValue(sName);
+                this.byId("inpCollege").setValue(oItem.getTitle());
             }
         },
 
@@ -154,57 +153,47 @@ sap.ui.define([
         },
 
         onSkillsSearch: function (oEvent) {
-            var sValue = oEvent.getParameter("value");
-            var oBinding = oEvent.getSource().getBinding("items");
+            const sValue = oEvent.getParameter("value");
+            const oBinding = oEvent.getSource().getBinding("items");
             oBinding.filter(sValue ? [new Filter("skill", FilterOperator.Contains, sValue)] : []);
         },
 
         onSkillSelect: function (oEvent) {
-            var sText = oEvent.getParameter("selectedItem")?.getTitle();
-            if (sText) {
-                this._addSkill(sText);
-            }
+            const sText = oEvent.getParameter("selectedItem")?.getTitle();
+            if (sText) this._addSkill(sText);
         },
 
         onSkillSubmit: function (oEvent) {
-            var sVal = oEvent.getParameter("value");
-            if (sVal && sVal.trim()) {
-                this._addSkill(sVal.trim());
-            }
+            const sVal = oEvent.getParameter("value");
+            if (sVal && sVal.trim()) this._addSkill(sVal.trim());
             oEvent.getSource().setValue("");
         },
 
         _addSkill: function (sText) {
-            var oMI = this.byId("miSkills");
-            var exists = oMI.getTokens().some(t => t.getText().toLowerCase() === sText.toLowerCase());
-            if (!exists) {
-                oMI.addToken(new sap.m.Token({ text: sText }));
-            } else {
-                MessageToast.show("Skill already added");
-            }
+            const oMI = this.byId("miSkills");
+            const exists = oMI.getTokens().some(t => t.getText().toLowerCase() === sText.toLowerCase());
+            if (!exists) oMI.addToken(new sap.m.Token({ text: sText }));
+            else MessageToast.show("Skill already added");
         },
 
         onPhotoChange: function (oEvent) {
-            var file = oEvent.getParameter("files")?.[0];
+            const file = oEvent.getParameter("files")?.[0];
             if (!file) return;
 
-            var reader = new FileReader();
+            const reader = new FileReader();
             reader.onload = (e) => {
-                var img = new Image();
+                const img = new Image();
                 img.onload = () => {
-                    var canvas = document.createElement("canvas");
-                    var max = 400, w = img.width, h = img.height;
-
+                    const canvas = document.createElement("canvas");
+                    const max = 400;
+                    let w = img.width, h = img.height;
                     if (w > h && w > max) { h *= max / w; w = max; }
                     else if (h > max) { w *= max / h; h = max; }
-
                     canvas.width = w;
                     canvas.height = h;
                     canvas.getContext("2d").drawImage(img, 0, 0, w, h);
-
-                    var base64 = canvas.toDataURL("image/jpeg", 0.8).split(",")[1];
-                    this._photoBase64 = base64;
-                    this.byId("avatarPreview").setSrc("data:image/jpeg;base64," + base64);
+                    this._photoBase64 = canvas.toDataURL("image/jpeg", 0.8).split(",")[1];
+                    this.byId("avatarPreview").setSrc("data:image/jpeg;base64," + this._photoBase64);
                 };
                 img.src = e.target.result;
             };
@@ -212,10 +201,10 @@ sap.ui.define([
         },
 
         onResumeChange: function (oEvent) {
-            var file = oEvent.getParameter("files")?.[0];
+            const file = oEvent.getParameter("files")?.[0];
             if (!file) return;
 
-            var reader = new FileReader();
+            const reader = new FileReader();
             reader.onload = (e) => {
                 this._resumeBase64 = e.target.result.split(",")[1];
                 this._resumeName = file.name;
@@ -224,14 +213,8 @@ sap.ui.define([
             reader.readAsDataURL(file);
         },
 
-        _updateButtons: function () {
-            var cur = this._wizard.getCurrentStep();
-            this._btnPrev.setEnabled(cur !== this.byId("stepPersonal").getId());
-            this._btnNext.setEnabled(cur !== this.byId("stepReview").getId());
-        },
-
-        onSubmit: function () {
-            const oData = {
+        onWizardComplete: function () {
+                const oData = {
                 name: this.byId("inpName").getValue(),
                 email: this.byId("inpEmail").getValue(),
                 mobile: this.byId("inpPhone").getValue(),
@@ -248,14 +231,62 @@ sap.ui.define([
                 resumeName: this._resumeName,
                 resumeData: this._resumeBase64
             };
+            if (!this._reviewDialog) {
+                Fragment.load({
+                    name: "naruto.wizardapp.Fragments.ReviewDialog",
+                    type: "XML",
+                    controller: this
+                }).then(function (oDialog) {
+                    this._reviewDialog = oDialog;
+                    this.getView().addDependent(oDialog);
+                    oDialog.open();
+                }.bind(this));
+            } else {
+                this._reviewDialog.open();
+            }
+        
 
-            var oModel = new JSONModel(oData);
-            this.getView().setModel(oModel, "previewData");
+            const oPreviewModel = new JSONModel(oData);
+            this.getView().setModel(oPreviewModel, "previewData");
 
-            console.log("Final Submitted Data:", oData);
-            MessageBox.success("Application submitted successfully!");
-        }
+            
+        },
+
+        onReviewConfirm: function () {
+                MessageBox.success("Application submitted successfully!");
+                
+                this._reviewDialog.close();
+
+                this._wizard.discardProgress(this._wizard.getSteps()[0]);
+                this._wizard.goToStep(this._wizard.getSteps()[0]); 
+
+                this.byId("inpName").setValue("");
+                this.byId("inpEmail").setValue("");
+                this.byId("inpPhone").setValue("");
+                this.byId("cbCountry").setSelectedKey("");
+                this.byId("cbState").setSelectedKey("");
+                this.byId("cbCity").setSelectedKey("");
+                this.byId("inpCollege").setValue("");
+                this.byId("inpCgpa").setValue("");
+                this.byId("inpYear").setValue("");
+                this.byId("cbRole").setSelectedKey("");
+                this.byId("inpExp").setValue("");
+                this.byId("miSkills").removeAllTokens();
+
+                this._photoBase64 = "";
+                this.byId("avatarPreview").setSrc("");
+                this._resumeBase64 = "";
+                this._resumeName = "";
+                this.byId("fuPhoto").setValue("");
+                this.byId("fuResume").setValue("");
+            },
+
+
+        onReviewCancel: function () {
+                this._reviewDialog.close();
+             },
 
     });
 });
+
 

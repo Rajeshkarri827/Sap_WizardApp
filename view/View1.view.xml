@@ -7,7 +7,7 @@
 
     <Page id="wizardPage" title="Student Job Application Wizard" showNavButton="false">
         <content>
-            <Wizard id="jobWizard" complete="onWizardComplete">
+            <Wizard id="jobWizard" complete=".onWizardComplete"   >
                 <WizardStep id="stepPersonal" title="Personal Details">
                     <VBox id="_IDGenVBox" class="sapUiSmallMargin">
                         <Label id="_IDGenLabel" text="Full Name" required="true" />
@@ -125,19 +125,17 @@
                         <Label id="_IDGenLabel19" text="LinkedIn (optional)" />
                         <Input id="inpLinkedIn" placeholder="https://linkedin.com/in/username" />
 
-                    <Button id="_IDGenButton" text="Submit Application" type="Accept" press="onSubmit" class="sapUiSmallMarginTop"/>
                     </VBox>
                 </WizardStep>
 
-                <!-- <WizardStep id="stepReview" title="Review and Submit">
+                <WizardStep id="stepReview" title="Review and Submit">
                     <VBox id="_IDGenVBox8" class="sapUiSmallMargin">
                         <Text id="_IDGenText" text="Please review your application below:"/>
-                        <Panel id="_IDGenPanel" headerText="Application Details">
-                            <List id="reviewList" />
-                        </Panel>
                         
+                          
+        
                     </VBox>
-                </WizardStep> -->
+                </WizardStep>
             </Wizard>
         </content>
 
