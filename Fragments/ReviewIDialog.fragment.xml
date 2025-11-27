@@ -1,0 +1,42 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+
+    <Dialog id="reviewDialog"
+            title="Review Your Application"
+            horizontalScrolling="true"
+            verticalScrolling="true"
+            contentHeight="auto"
+            contentWidth="500px">
+
+        <VBox id="_IDGenVBox9" class="sapUiMediumMargin">
+
+            <ObjectAttribute id="_IDGenObjectAttribute" title="Full Name" text="{previewData>/name}" />
+            <ObjectAttribute id="_IDGenObjectAttribute1" title="Email" text="{previewData>/email}" />
+            <ObjectAttribute id="_IDGenObjectAttribute2" title="Phone" text="{previewData>/mobile}" />
+
+            <ObjectAttribute id="_IDGenObjectAttribute3" title="Country" text="{previewData>/country}" />
+            <ObjectAttribute id="_IDGenObjectAttribute4" title="State" text="{previewData>/state}" />
+            <ObjectAttribute id="_IDGenObjectAttribute5" title="City" text="{previewData>/city}" />
+
+            <ObjectAttribute id="_IDGenObjectAttribute6" title="College" text="{previewData>/college}" />
+            <ObjectAttribute id="_IDGenObjectAttribute7" title="CGPA" text="{previewData>/cgpa}" />
+            <ObjectAttribute id="_IDGenObjectAttribute8" title="Graduation Year" text="{previewData>/year}" />
+
+            <ObjectAttribute id="_IDGenObjectAttribute9" title="Job Role" text="{previewData>/role}" />
+            <ObjectAttribute id="_IDGenObjectAttribute10" title="Experience" text="{previewData>/experience}" />
+            <ObjectAttribute id="_IDGenObjectAttribute11" title="Skills" text="{previewData>/skills}" />
+
+        </VBox>
+
+        <buttons>
+            <Button id="_IDGenButton2" text="Confirm and Submit"
+                    type="Accept"
+                    press=".onReviewConfirm" />
+
+            <Button id="_IDGenButton3" text="Cancel"
+                    type="Reject"
+                    press=".onReviewCancel" />
+        </buttons>
+
+    </Dialog>
+
+</core:FragmentDefinition>

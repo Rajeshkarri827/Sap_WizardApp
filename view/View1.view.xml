@@ -5,13 +5,9 @@
     xmlns:core="sap.ui.core"
     xmlns:unified="sap.ui.unified">
 
-    <Page id="_IDGenPage" title="Student Job Application Wizard" showNavButton="false">
-
+    <Page id="wizardPage" title="Student Job Application Wizard" showNavButton="false">
         <content>
-
             <Wizard id="jobWizard" complete="onWizardComplete">
-
-                <!-- STEP 1 - PERSONAL DETAILS -->
                 <WizardStep id="stepPersonal" title="Personal Details">
                     <VBox id="_IDGenVBox" class="sapUiSmallMargin">
                         <Label id="_IDGenLabel" text="Full Name" required="true" />
@@ -24,28 +20,40 @@
                         <Input id="inpPhone" type="Tel" placeholder="9876543210" />
 
                         <HBox id="_IDGenHBox" class="sapUiSmallMarginTop">
-                            <VBox id="_IDGenVBox1" width="48%">
+                            <VBox id="_IDGenVBox1" width="33%">
                                 <Label id="_IDGenLabel3" text="Country" required="true" />
-                                <ComboBox id="cbCountry" selectionChange="onCountryChange" items="{/countries}">
+                                <ComboBox id="cbCountry"
+                                          items="{/countries}"
+                                          >
                                     <core:Item id="_IDGenItem" key="{code}" text="{name}" />
                                 </ComboBox>
                             </VBox>
-                            <VBox id="_IDGenVBox2" width="48%">
+
+                            <VBox id="_IDGenVBox2" width="33%">
                                 <Label id="_IDGenLabel4" text="State" required="true" />
-                                <ComboBox id="cbState" selectionChange="onStateChange" />
+                                <ComboBox id="cbState"
+                                          items="{/states}"
+                                         >
+                                    <core:Item id="_IDGenItem1" key="{code}" text="{name}" />
+                                </ComboBox>
+                            </VBox>
+
+                            <VBox id="_IDGenVBox3" width="33%">
+                                <Label id="_IDGenLabel5" text="City" required="true" />
+                                <ComboBox id="cbCity"
+                                          items="{/cities}"
+                                          >
+                                    <core:Item id="_IDGenItem2" key="{code}" text="{name}" />
+                                </ComboBox>
                             </VBox>
                         </HBox>
 
-                        <Label id="_IDGenLabel5" text="City" required="true" />
-                        <ComboBox id="cbCity" />
-
                         <HBox id="_IDGenHBox1" class="sapUiSmallMarginTop" alignItems="Center">
-                            <VBox id="_IDGenVBox3">
+                            <VBox id="_IDGenVBox4" width="60%">
                                 <Label id="_IDGenLabel6" text="Profile Photo" />
                                 <unified:FileUploader
                                     id="fuPhoto"
                                     name="photo"
-                                    
                                     uploadOnChange="false"
                                     change="onPhotoChange"
                                     placeholder="Upload profile photo" />
@@ -55,22 +63,21 @@
                     </VBox>
                 </WizardStep>
 
-                <!-- STEP 2 - ACADEMIC DETAILS -->
                 <WizardStep id="stepAcademic" title="Academic Details">
-                    <VBox id="_IDGenVBox4" class="sapUiSmallMargin">
+                    <VBox id="_IDGenVBox5" class="sapUiSmallMargin">
                         <Label id="_IDGenLabel7" text="Highest Qualification" required="true" />
                         <ComboBox id="cbQualification">
-                            <core:Item id="_IDGenItem1" key="btech" text="B.Tech" />
-                            <core:Item id="_IDGenItem2" key="bsc" text="B.Sc" />
-                            <core:Item id="_IDGenItem3" key="mtech" text="M.Tech" />
-                            <core:Item id="_IDGenItem4" key="msc" text="M.Sc" />
+                            <core:Item id="_IDGenItem3" key="btech" text="B.Tech" />
+                            <core:Item id="_IDGenItem4" key="bsc" text="B.Sc" />
+                            <core:Item id="_IDGenItem5" key="mtech" text="M.Tech" />
+                            <core:Item id="_IDGenItem6" key="msc" text="M.Sc" />
                         </ComboBox>
 
                         <Label id="_IDGenLabel8" text="Branch / Department" required="true" />
                         <Input id="inpBranch" placeholder="Computer Science" />
 
                         <Label id="_IDGenLabel9" text="College / University" required="true" />
-                        <Input id="inpCollege" showValueHelp="true" valueHelpRequest="onCollegeValueHelp" placeholder="Search colleges..." />
+                        <Input id="inpCollege" placeholder="Search colleges..." showValueHelp="true" valueHelpRequest="onCollegeValueHelp" />
 
                         <Label id="_IDGenLabel10" text="CGPA (0.0 - 10.0)" required="true" />
                         <Input id="inpCgpa" placeholder="e.g. 8.5" />
@@ -79,24 +86,23 @@
                         <Input id="inpYear" placeholder="YYYY" />
 
                         <Label id="_IDGenLabel12" text="Upload Resume" />
-                        <unified:FileUploader id="fuResume" name="resume"  uploadOnChange="false" change="onResumeChange"/>
+                        <unified:FileUploader id="fuResume" name="resume" uploadOnChange="false" change="onResumeChange"/>
                     </VBox>
                 </WizardStep>
 
-                <!-- STEP 3 - JOB PREFERENCES -->
                 <WizardStep id="stepJob" title="Job Preferences">
-                    <VBox id="_IDGenVBox5" class="sapUiSmallMargin">
+                    <VBox id="_IDGenVBox6" class="sapUiSmallMargin">
                         <Label id="_IDGenLabel13" text="Applying for Role" required="true" />
-                        <ComboBox id="cbRole" items="{/roles}">
-                            <core:Item id="_IDGenItem5" key="{id}" text="{title}" />
+                        <ComboBox id="cbRole" items="{/roles}" >
+                            <core:Item id="_IDGenItem7" key="{id}" text="{title}" />
                         </ComboBox>
 
                         <Label id="_IDGenLabel14" text="Experience (years)" required="true" />
                         <Input id="inpExp" placeholder="0 for Fresher" />
 
                         <Label id="_IDGenLabel15" text="Preferred Locations" />
-                        <MultiComboBox id="mcbLocations" items="{/preferredLocations}">
-                            <core:Item id="_IDGenItem6" key="{code}" text="{name}" />
+                        <MultiComboBox id="mcbLocations" items="{/preferredLocations}" >
+                            <core:Item id="_IDGenItem8" key="{code}" text="{name}" />
                         </MultiComboBox>
 
                         <Label id="_IDGenLabel16" text="Skills" required="true" />
@@ -108,9 +114,8 @@
                     </VBox>
                 </WizardStep>
 
-                <!-- STEP 4 - ADDITIONAL DETAILS -->
                 <WizardStep id="stepOther" title="Additional Details">
-                    <VBox id="_IDGenVBox6" class="sapUiSmallMargin">
+                    <VBox id="_IDGenVBox7" class="sapUiSmallMargin">
                         <Label id="_IDGenLabel17" text="About You" />
                         <TextArea id="taAbout" rows="5" placeholder="Tell us about yourself..." />
 
@@ -119,56 +124,23 @@
 
                         <Label id="_IDGenLabel19" text="LinkedIn (optional)" />
                         <Input id="inpLinkedIn" placeholder="https://linkedin.com/in/username" />
+
+                    <Button id="_IDGenButton" text="Submit Application" type="Accept" press="onSubmit" class="sapUiSmallMarginTop"/>
                     </VBox>
                 </WizardStep>
 
-                <!-- STEP 5 - REVIEW -->
-                <!-- STEP 5: Review and Submit -->
-<WizardStep id="stepReview" title="Review and Submit">
-    <VBox id="_IDGenVBox7" class="sapUiSmallMargin">
-        <Text id="_IDGenText" text="Please review your application below:"/>
-
-        <Panel id="_IDGenPanel1" headerText="Personal">
-            <ObjectListItem id="_IDGenObjectListItem" 
-                title="{app>/application/name}" 
-                number="{app>/application/email}" 
-                intro="{app>/application/phone}">
-                <attributes>
-                    <ObjectAttribute id="_IDGenObjectAttribute" text="{app>/application/country}" />
-                    <ObjectAttribute id="_IDGenObjectAttribute1" text="{app>/application/state}" />
-                    <ObjectAttribute id="_IDGenObjectAttribute2" text="{app>/application/city}" />
-                </attributes>
-            </ObjectListItem>
-        </Panel>
-
-        <Panel id="_IDGenPanel2" headerText="Academic">
-            <Text id="_IDGenText1" text="College: {app>/application/college}" />
-            <Text id="_IDGenText2" text="Qualification: {app>/application/qualification} | Branch: {app>/application/branch}" />
-            <Text id="_IDGenText3" text="CGPA: {app>/application/cgpa} | Year: {app>/application/year}" />
-        </Panel>
-
-        <Panel id="_IDGenPanel3" headerText="Job Preferences">
-            <Text id="_IDGenText4" text="Role: {app>/application/role}" />
-            <Text id="_IDGenText5" text="Experience: {app>/application/experience} yrs" />
-            <Text id="_IDGenText6" text="Skills: {app>/application/skills}" />
-            <Text id="_IDGenText7" text="Preferred Locations: {app>/application/preferredLocations}" />
-        </Panel>
-
-        <Button id="_IDGenButton" text="Submit Application" type="Accept" press="onSubmit" class="sapUiSmallMarginTop"/>
-    </VBox>
-</WizardStep>
-
+                <!-- <WizardStep id="stepReview" title="Review and Submit">
+                    <VBox id="_IDGenVBox8" class="sapUiSmallMargin">
+                        <Text id="_IDGenText" text="Please review your application below:"/>
+                        <Panel id="_IDGenPanel" headerText="Application Details">
+                            <List id="reviewList" />
+                        </Panel>
+                        
+                    </VBox>
+                </WizardStep> -->
             </Wizard>
-
         </content>
 
-        <footer>
-            <Toolbar id="_IDGenToolbar">
-                <ToolbarSpacer id="_IDGenToolbarSpacer"/>
-                <Button id="btnPrev" text="Previous" press="onPrevious" enabled="false"/>
-                <Button id="btnNext" text="Next" press="onNext"/>
-            </Toolbar>
-        </footer>
 
     </Page>
 </mvc:View>

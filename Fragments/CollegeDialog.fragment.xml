@@ -1,0 +1,12 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+    <SelectDialog
+        id="collegeDialog"
+        title="Select College"
+        search="onCollegeSearch"
+        confirm="onCollegeSelect"
+        items="{/colleges}">
+        <items>
+            <StandardListItem id="_IDGenStandardListItem" title="{name}" />
+        </items>
+    </SelectDialog>
+</core:FragmentDefinition>

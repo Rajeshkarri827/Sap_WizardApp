@@ -1,24 +1,96 @@
 {
   "countries": [
+    { "code": "AR", "name": "Argentina" },
+    { "code": "AU", "name": "Australia" },
+    { "code": "BD", "name": "Bangladesh" },
+    { "code": "BR", "name": "Brazil" },
+    { "code": "CA", "name": "Canada" },
+    { "code": "CN", "name": "China" },
+    { "code": "DE", "name": "Germany" },
+    { "code": "EG", "name": "Egypt" },
+    { "code": "FR", "name": "France" },
     { "code": "IN", "name": "India" },
-    { "code": "US", "name": "United States" },
-    { "code": "CA", "name": "Canada" }
+    { "code": "ID", "name": "Indonesia" },
+    { "code": "IT", "name": "Italy" },
+    { "code": "JP", "name": "Japan" },
+    { "code": "MX", "name": "Mexico" },
+    { "code": "NG", "name": "Nigeria" },
+    { "code": "PK", "name": "Pakistan" },
+    { "code": "RU", "name": "Russia" },
+    { "code": "SA", "name": "Saudi Arabia" },
+    { "code": "UK", "name": "United Kingdom" },
+    { "code": "US", "name": "United States" }
   ],
+
   "states": [
-    { "code": "MH", "countryCode": "IN", "name": "Maharashtra" },
-    { "code": "KA", "countryCode": "IN", "name": "Karnataka" },
-    { "code": "DL", "countryCode": "IN", "name": "Delhi" },
-    { "code": "CA-ON", "countryCode": "CA", "name": "Ontario" },
-    { "code": "US-CA", "countryCode": "US", "name": "California" }
+    { "code": "AK", "name": "Alaska" },
+    { "code": "AP", "name": "Andhra Pradesh" },
+    { "code": "BC", "name": "British Columbia" },
+    { "code": "BM", "name": "Bavaria" },
+    { "code": "BRN", "name": "Borno" },
+    { "code": "CA-CA", "name": "California" },
+    { "code": "DL", "name": "Delhi" },
+    { "code": "ENG", "name": "England" },
+    { "code": "FL", "name": "Florida" },
+    { "code": "GAU", "name": "Gauteng" },
+    { "code": "IL", "name": "Illinois" },
+    { "code": "JK", "name": "Jammu & Kashmir" },
+    { "code": "KA", "name": "Karnataka" },
+    { "code": "KY", "name": "Kyoto" },
+    { "code": "MH", "name": "Maharashtra" },
+    { "code": "NSW", "name": "New South Wales" },
+    { "code": "ON", "name": "Ontario" },
+    { "code": "QC", "name": "Quebec" },
+    { "code": "SC", "name": "South Carolina" },
+    { "code": "TX", "name": "Texas" }
   ],
+
   "cities": [
-    { "code": "MUM", "stateCode": "MH", "name": "Mumbai" },
-    { "code": "PUN", "stateCode": "MH", "name": "Pune" },
-    { "code": "BLR", "stateCode": "KA", "name": "Bengaluru" },
-    { "code": "DEL", "stateCode": "DL", "name": "New Delhi" },
-    { "code": "TOR", "stateCode": "CA-ON", "name": "Toronto" },
-    { "code": "SFO", "stateCode": "US-CA", "name": "San Francisco" }
+    { "code": "AMS", "name": "Amsterdam" },
+    { "code": "BLR", "name": "Bengaluru" },
+    { "code": "BER", "name": "Berlin" },
+    { "code": "BOM", "name": "Mumbai" },
+    { "code": "CAI", "name": "Cairo" },
+    { "code": "CHI", "name": "Chicago" },
+    { "code": "DEL", "name": "New Delhi" },
+    { "code": "DXB", "name": "Dubai" },
+    { "code": "HYD", "name": "Hyderabad" },
+    { "code": "IST", "name": "Istanbul" },
+    { "code": "JKT", "name": "Jakarta" },
+    { "code": "LAG", "name": "Lagos" },
+    { "code": "LON", "name": "London" },
+    { "code": "MEL", "name": "Melbourne" },
+    { "code": "NYC", "name": "New York City" },
+    { "code": "PAR", "name": "Paris" },
+    { "code": "ROM", "name": "Rome" },
+    { "code": "SFO", "name": "San Francisco" },
+    { "code": "SYD", "name": "Sydney" },
+    { "code": "TOR", "name": "Toronto" }
   ],
+
+  "colleges": [
+    { "name": "Arizona State University" },
+    { "name": "Bangladesh University of Engineering and Technology" },
+    { "name": "Brown University" },
+    { "name": "Carnegie Mellon University" },
+    { "name": "Delhi University" },
+    { "name": "ETH Zurich" },
+    { "name": "Georgia Tech" },
+    { "name": "Harvard University" },
+    { "name": "IIT Bombay" },
+    { "name": "IIT Delhi" },
+    { "name": "Imperial College London" },
+    { "name": "MIT" },
+    { "name": "NIT Trichy" },
+    { "name": "National University of Singapore" },
+    { "name": "Stanford University" },
+    { "name": "Texas A&M University" },
+    { "name": "University of California, Berkeley" },
+    { "name": "University of Cambridge" },
+    { "name": "University of Toronto" },
+    { "name": "Yale University" }
+  ],
+
   "roles": [
     { "id": "r1", "title": "Software Engineer" },
     { "id": "r2", "title": "Frontend Developer (UI5/React)" },
@@ -26,27 +98,23 @@
     { "id": "r4", "title": "DevOps Engineer" },
     { "id": "r5", "title": "Backend Engineer" }
   ],
+
   "skills": [
-    { "skill": "JavaScript" },
-    { "skill": "Python" },
+    { "skill": "Docker" },
     { "skill": "Java" },
-    { "skill": "SAPUI5" },
-    { "skill": "React" },
+    { "skill": "JavaScript" },
     { "skill": "Node.js" },
-    { "skill": "SQL" },
-    { "skill": "Docker" }
+    { "skill": "Python" },
+    { "skill": "React" },
+    { "skill": "SAPUI5" },
+    { "skill": "SQL" }
   ],
-  "colleges": [
-    { "id": "c1", "name": "Indian Institute of Technology Bombay", "city": "Mumbai" },
-    { "id": "c2", "name": "Vishveshwarya Technological University", "city": "Belgaum" },
-    { "id": "c3", "name": "Delhi Technological University", "city": "New Delhi" },
-    { "id": "c4", "name": "University of Toronto", "city": "Toronto" }
-  ],
+
   "preferredLocations": [
-    { "code": "MUM", "name": "Mumbai" },
-    { "code": "PUN", "name": "Pune" },
     { "code": "BLR", "name": "Bengaluru" },
+    { "code": "BOM", "name": "Mumbai" },
     { "code": "DEL", "name": "New Delhi" },
+    { "code": "HYD", "name": "Hyderabad" },
     { "code": "SFO", "name": "San Francisco" }
   ]
 }
