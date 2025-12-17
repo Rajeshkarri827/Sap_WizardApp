@@ -2,7 +2,7 @@
     <SelectDialog
         id="skillsDialog"
         title="Select Skill"
-        search="onSkillsSearch"
+        liveChange="onSkillsSearch"
         confirm="onSkillSelect"
         items="{/skills}">
         <items>

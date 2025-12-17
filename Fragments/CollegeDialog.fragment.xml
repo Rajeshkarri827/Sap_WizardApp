@@ -2,7 +2,7 @@
     <SelectDialog
         id="collegeDialog"
         title="Select College"
-        search="onCollegeSearch"
+        liveChange="CollegeSearch"
         confirm="onCollegeSelect"
         items="{/colleges}">
         <items>
